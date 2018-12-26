@@ -29,8 +29,8 @@ public class CountryServiceImpl implements CountryService {
     public CountryInfo getCountryInfo(String countryId) {
         Optional<Country> countryOptional = dbCountryService.getCountryById(countryId);
 
-        countryOptional.orElseThrow(CountryNotFoundException::new);
+        Country country = countryOptional.orElseThrow(CountryNotFoundException::new);
 
-        return restCountriesConnectorService.getCountryByISOCode(countryOptional.get().getIsoCode());
+        return restCountriesConnectorService.getCountryByISOCode(country.getIsoCode());
     }
 }
