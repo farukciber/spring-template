@@ -1,0 +1,6 @@
+CREATE TABLE countries (
+ id CHAR(36) NOT NULL,
+ iso_code CHAR(3) NOT NULL UNIQUE,
+ name VARCHAR(64) NOT NULL,
+ PRIMARY KEY(id)
+);
